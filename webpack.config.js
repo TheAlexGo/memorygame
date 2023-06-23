@@ -25,7 +25,11 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        type: 'asset/resource'
+        issuer: /\.[jt]sx?$/,
+        use: [
+          '@svgr/webpack',
+          'url-loader'
+        ]
       },
       {
         test: /\.(ts|tsx)$/,
