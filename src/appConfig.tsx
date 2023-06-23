@@ -1,6 +1,18 @@
 import React from "react";
 
 import { ICard, CardType } from "./types";
+import {
+    FirebaseIcon,
+    JsIcon,
+    NginxIcon,
+    ReactIcon,
+    ReduxIcon,
+    TypescriptIcon,
+    WebpackIcon,
+    WebstormIcon
+} from "./assets/images";
+
+export const MODAL_CONTAINER_ID = "modal";
 
 export const TOTAL_STEPS = 40;
 export const HIDE_DELAY = 1500;
@@ -10,56 +22,56 @@ export const cardList: ICard[] = [
     {
         type: CardType.ORIGINAL,
         name: 'ng',
-        image: <span>Nginx</span>,
+        image: NginxIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'fb',
-        image: <span>Firebase</span>,
+        image: FirebaseIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'ts',
-        image: <span>Typescript</span>,
+        image: TypescriptIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'react',
-        image: <span>React</span>,
+        image: ReactIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'ws',
-        image: <span>WebStorm</span>,
+        image: WebstormIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'redux',
-        image: <span>Redux</span>,
+        image: ReduxIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'js',
-        image: <span>JS</span>,
+        image: JsIcon,
         isShowed: false,
         isSolved: false
     },
     {
         type: CardType.ORIGINAL,
         name: 'wb',
-        image: <span>Webpack</span>,
+        image: WebpackIcon,
         isShowed: false,
         isSolved: false
     }

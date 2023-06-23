@@ -13,11 +13,15 @@ interface ICardProps {
 }
 
 export const Card: FC<ICardProps> = ({ className, onClick, data }) => {
-    const { isShowed, image, isSolved } = data;
+    const { isShowed, image, isSolved, name } = data;
 
     const renderContent = useCallback(() => {
         if (isShowed) {
-            return <div>{image}</div>
+            return (
+                <div>
+                    <img src={image} alt={name} />
+                </div>
+            )
         }
         return <CardPlaceholder />;
     }, [isShowed, image]);
