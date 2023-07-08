@@ -21,6 +21,10 @@
     font-weight: 700;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -28,9 +32,17 @@ html, body {
     font-weight: 500;
 }
 
-/* Блоки */
-.container {
-    max-width: var(--container_width);
-    margin: 0 auto;
+/* Системные теги */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
-/* /Блоки */
+
+h1 {
+    font-size: 50px;
+}
+/* /Системные теги */

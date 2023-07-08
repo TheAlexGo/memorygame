@@ -8,7 +8,16 @@ interface ISelectedCards {
     second: ICard | null
 }
 
-export const useGameLogic = (): [ICard[], number, number, (currentCard: ICard) => void] => {
+interface IGameLogicReturn {
+    cards: ICard[];
+    stepMove: number;
+    stepLeft: number;
+    isWin: boolean | null;
+    initGame: () => void;
+    clickCardHandler: (currentCard: ICard) => void;
+}
+
+export const useGameLogic = (): IGameLogicReturn => {
     const [cards, setCards] = useState<ICard[]>([]);
     const [isWin, setIsWin] = useState<boolean | null>(null);
     const [timer, setTimer] = useState<number | null>(null);
@@ -18,15 +27,6 @@ export const useGameLogic = (): [ICard[], number, number, (currentCard: ICard) =
         first: null,
         second: null
     }) ;
-
-    useEffect(() => {
-        setCards(
-            shuffle<ICard>(cardList.reduce<ICard[]>((acc, value) => {
-                acc.push(...[value, {...value, type: CardType.COPY}]);
-                return acc;
-            }, []))
-        );
-    }, []);
 
     const stepLeft = useMemo(() => TOTAL_STEPS - stepMove, [stepMove]);
 
@@ -165,7 +165,7 @@ export const useGameLogic = (): [ICard[], number, number, (currentCard: ICard) =
      * Основной обработчик нажатия на карточку
      * @param currentCard - теущая выбранная карта
      */
-    const cardClickHandler = (currentCard: ICard) => {
+    const clickCardHandler = (currentCard: ICard) => {
         const { first, second } = selectedCards;
         if (first && second) {
             invokeActionSelectedCards(first, second, SelectedCardsAction.HIDE);
@@ -183,6 +183,38 @@ export const useGameLogic = (): [ICard[], number, number, (currentCard: ICard) =
     };
 
     /**
+     * Инициализируем игру
+     */
+    const initGame = () => {
+        setStepMove(0);
+        setTotalPairsFound(0);
+        setSelectedCards({
+            first: null,
+            second: null
+        });
+        setIsWin(null);
+        setTimer(null);
+        fillCardGrid();
+    }
+
+    /**
+     * Заполняем сетку карточек контентом
+     */
+    const fillCardGrid = () => {
+        setCards(
+            shuffle<ICard>(cardList.reduce<ICard[]>((acc, value) => {
+                acc.push(...[value, {...value, type: CardType.COPY}]);
+                return acc;
+            }, []))
+        );
+    };
+
+    /**
+     * Инициализируем данные для начала игры
+     */
+    useEffect(initGame, []);
+
+    /**
      * Проверяем условие победы
      */
     useEffect(() => {
@@ -193,16 +225,12 @@ export const useGameLogic = (): [ICard[], number, number, (currentCard: ICard) =
         }
     }, [stepLeft, totalPairsFound]);
 
-    useEffect(() => {
-        if (isWin === null) {
-            return;
-        }
-        if (isWin) {
-            console.log("Победа!");
-        } else {
-            console.log("Поражение!");
-        }
-    }, [isWin]);
-
-    return [cards, stepMove, stepLeft, cardClickHandler];
+    return {
+        cards,
+        stepMove,
+        stepLeft,
+        isWin,
+        initGame,
+        clickCardHandler
+    };
 }
