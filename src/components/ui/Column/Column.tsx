@@ -1,19 +1,15 @@
 import React, { FC, JSX } from 'react';
 
 import classes from "./Column.module.css";
-import cn from "classnames";
 
 interface IColumn {
-    className?: string;
     text: string;
     value: number;
 }
 
-export const Column: FC<IColumn> = ({ text, value, className}): JSX.Element => {
-    const rootClasses = cn(classes['column'], className);
-
+export const Column: FC<IColumn> = ({ text, value}): JSX.Element => {
     return (
-        <div className={rootClasses}>
+        <div className={classes['column']}>
             {text}
             <span className={classes['value']}>{value}</span>
         </div>

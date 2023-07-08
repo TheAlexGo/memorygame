@@ -1,16 +1,10 @@
 :root {
-    --color_white: #FFFFFF;
     --color_primary: #0083FC;
     --color_danger: #FF5533;
     --color_secondary: #E6E6E6;
 
-    --color_black-06: rgba(0, 0, 0, 0.3);
+    --container_width: 1440px;
 
-    --container_width: 1000px;
-
-    --cards_grid_column_width-min: 74px;
-    --cards_grid_column_width-max: 116px;
-    --cards_grid_column_width: minmax(var(--cards_grid_column_width-min), var(--cards_grid_column_width-max));
-
+    --cards_grid_column_width: 116px;
     --cards_grid_gap: 16px;
 }

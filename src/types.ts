@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export enum CardType {
     ORIGINAL,
     COPY
@@ -12,7 +14,7 @@ export enum SelectedCardsAction {
 export interface ICard {
     type: CardType;
     name: string;
-    image: string;
+    image: ReactElement;
     isShowed: boolean;
     isSolved: boolean;
 }
