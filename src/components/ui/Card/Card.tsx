@@ -18,7 +18,9 @@ export const Card: FC<ICardProps> = ({ className, onClick, data }) => {
     const renderContent = useCallback(() => {
         if (isShowed) {
             return (
-                <img className={classes['icon']} src={image} alt={name} />
+                <div>
+                    <img src={image} alt={name} />
+                </div>
             )
         }
         return <CardPlaceholder />;
