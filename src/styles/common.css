@@ -1,0 +1,36 @@
+@import "variables.css";
+
+@font-face {
+    font-family: "Formular";
+    src: local("Formular"),
+        url("../assets/fonts/formular.woff2") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Formular";
+    src: local("Formular"),
+        url("../assets/fonts/formular-medium.woff2") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Formular";
+    src: local("Formular"),
+        url("../assets/fonts/formular-bold.woff2") format("woff");
+    font-weight: 700;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Formular", sans-serif;
+    font-weight: 500;
+}
+
+/* Блоки */
+.container {
+    max-width: var(--container_width);
+    margin: 0 auto;
+}
+/* /Блоки */
