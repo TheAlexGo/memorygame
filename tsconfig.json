@@ -2,9 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "target": "ESNext",
-    "moduleResolution": "NodeNext"
+    "jsx": "react"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
