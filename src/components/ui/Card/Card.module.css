@@ -1,0 +1,26 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: var(--color_primary);
+    color: var(--color_secondary);
+    cursor: pointer;
+}
+
+.__is-showed {
+    background-color: var(--color_secondary);
+    color: inherit;
+}
+
+.__is-solved {
+    opacity: 0;
+    z-index: -1;
+}
+
+.icon {
+    width: 100%;
+}
